@@ -98,3 +98,6 @@ Color :Comments ;
 .sec-content {
   margin-top: 85%;
 }
+.errorMsg{
+  color: red;
+}
