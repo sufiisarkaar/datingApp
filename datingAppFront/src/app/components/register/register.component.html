@@ -15,23 +15,33 @@
               <div class="form-group">
                 <label for="exampleInputName">First Name</label>
                 <input type="name" class="form-control" formControlName="firstName"  placeholder="Name">
+                <span *ngIf="f['firstName'].getError('required')!=null && f['firstName'].touched " class="errorMsg">First Name  is required</span>
+                <span *ngIf="f['firstName'].getError('minlength')!=null"  class="errorMsg">User name should be alteast 4 letters </span>
               </div>
               <div class="form-group">
                 <label for="exampleInputName"> Last Name</label>
                 <input type="name" class="form-control" formControlName="lastName"  placeholder="Name">
+                <span *ngIf="f['lastName'].getError('required')!=null && f['lastName'].touched " class="errorMsg">Last Name is required</span>
+
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">E-mail </label>
                 <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp" placeholder="E-mail">
-               
+                <span *ngIf="f['email'].getError('required')!=null && f['email'].touched " class="errorMsg">Email is required</span>
+                <span *ngIf="f['email'].getError('email')!=null && f['email'].touched " class="errorMsg">Invalid Email formet</span>
+
               </div>
               <div  class="form-group row-6">
                 <label >Password</label>
                 <input type="password" class="form-control" formControlName="password"  placeholder="Password">
+                <span *ngIf="f['password'].getError('required')!=null && f['password'].touched " class="errorMsg">Password is required </span>
+
               </div>
               <div class="form-group">
                 <label>Confirm Password</label>
                 <input type="password" class="form-control" formControlName="confirmPassword"  placeholder="Confirm Password">
+                <span *ngIf="f['confirmPassword'].getError('required')!=null && f['confirmPassword'].touched " class="errorMsg">Password is required</span>
+                <span *ngIf="f['confirmPassword'].getError('mustMatch')!=null && f['confirmPassword'].touched " class="errorMsg">Password is mismatch</span>
               </div>
               <button type="submit" (click)="signupData()" class="btn btn-outline-danger">Sign Up</button>
             </form  >
@@ -67,18 +77,22 @@
       <div class="modal-content">
         <div class="modal-body">
           <div class="column" id="main">
-            <h1>Sign Up </h1>
+            <h1>Login</h1>
             <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
             <form [formGroup]="loginForm" >
               
               <div class="form-group">
                 <label for="exampleInputEmail1">E-mail </label>
                 <input type="email" class="form-control" formControlName="loginEmail" aria-describedby="emailHelp" placeholder="E-mail">
-               
+                <span *ngIf="loginControls['loginEmail'].getError('required')!=null && loginControls['loginEmail'].touched " class="errorMsg">Email is required</span>
+                <span *ngIf="loginControls['loginEmail'].getError('email')!=null && loginControls['loginEmail'].touched " class="errorMsg">Invalid Email formet</span>
+
               </div>
               <div  class="form-group row-6">
                 <label >Password</label>
                 <input type="password" class="form-control" formControlName="loginPassword"  placeholder="Password">
+                <span *ngIf="loginControls['loginPassword'].getError('required')!=null && loginControls['loginPassword'].touched " class="errorMsg">Password is required </span>
+
               </div>
               
               <button type="submit" (click)="loginData()" class="btn btn-outline-danger">Login</button>
