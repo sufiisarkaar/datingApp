@@ -8,6 +8,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterLinkActive } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,11 @@ import { LandingComponent } from './components/landing/landing.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    //
+    ReactiveFormsModule,
+    RouterLinkActive,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
