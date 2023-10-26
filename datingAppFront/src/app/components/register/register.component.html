@@ -9,61 +9,33 @@
           <input type="name" formControlName="firstName" />
           <label class="label-name"> First Name </label>
         </div>
-        <span
-          *ngIf="
+        <span *ngIf="
             f['firstName'].getError('required') != null &&
             f['firstName'].touched
-          "
-          class="errorMsg"
-          >First Name is required</span
-        >
-        <span
-          *ngIf="f['firstName'].getError('minlength') != null"
-          class="errorMsg"
-          >User name should be alteast 4 letters
+          " class="errorMsg">First Name is required</span>
+        <span *ngIf="f['firstName'].getError('minlength') != null" class="errorMsg">User name should be alteast 4
+          letters
         </span>
         <div class="form mt-3 mb-3">
           <input type="name" class="form" formControlName="lastName" />
           <label class="label-name"> Last Name </label>
         </div>
-        <span
-          *ngIf="
+        <span *ngIf="
             f['lastName'].getError('required') != null && f['lastName'].touched
-          "
-          class="errorMsg"
-          >Last Name is required</span
-        >
+          " class="errorMsg">Last Name is required</span>
         <div class="form mt-3 mb-3">
-          <input
-            type="email"
-            class="form"
-            formControlName="email"
-            aria-describedby="emailHelp"
-          />
+          <input type="email" class="form" formControlName="email" aria-describedby="emailHelp" />
           <label class="label-name">E-mail</label>
         </div>
-        <span
-          *ngIf="f['email'].getError('required') != null && f['email'].touched"
-          class="errorMsg"
-          >Email is required</span
-        >
-        <span
-          *ngIf="f['email'].getError('email') != null && f['email'].touched"
-          class="errorMsg"
-          >Invalid Email formet</span
-        >
+        <span *ngIf="f['email'].getError('required') != null && f['email'].touched" class="errorMsg">Email is
+          required</span>
+        <span *ngIf="f['email'].getError('email') != null && f['email'].touched" class="errorMsg">Invalid Email
+          formet</span>
 
         <div class="form mt-3 mb-3">
-          <input
-            type="{{ showPassword ? 'text' : 'password' }}"
-            class="form-control"
-            formControlName="password"
-          />
+          <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" formControlName="password" />
           <label class="label-name">Password</label>
-          <span
-            class="content-name mb-2"
-            (click)="togglePasswordVisibility('Password')"
-            >{{
+          <span class="content-name mb-2" (click)="togglePasswordVisibility('Password')">{{
               showPassword
                 ? "Hide
             Password"
@@ -71,44 +43,27 @@
             }}
           </span>
         </div>
-        <span
-          *ngIf="
+        <span *ngIf="
             f['password'].getError('required') != null && f['password'].touched
-          "
-          class="errorMsg"
-          >Password is required
+          " class="errorMsg">Password is required
         </span>
 
         <div class="form mt-3 mb-3">
-          <input
-            type="{{ showconPassword ? 'text' : 'password' }}"
-            class="form-control"
-            formControlName="confirmPassword"
-            placeholder=""
-          />
+          <input type="{{ showconPassword ? 'text' : 'password' }}" class="form-control"
+            formControlName="confirmPassword" placeholder="" />
           <label class="label-name"> Confirm Password </label>
-          <span
-            class="content-name mb-2"
-            (click)="togglePasswordVisibility('confirmPassword')"
-            >{{ showconPassword ? "Hide Password" : "Show Password" }}
+          <span class="content-name mb-2"
+            (click)="togglePasswordVisibility('confirmPassword')">{{ showconPassword ? "Hide Password" : "Show Password" }}
           </span>
         </div>
-        <span
-          *ngIf="
+        <span *ngIf="
             f['confirmPassword'].getError('required') != null &&
             f['confirmPassword'].touched
-          "
-          class="errorMsg"
-          >Password is required</span
-        >
-        <span
-          *ngIf="
+          " class="errorMsg">Password is required</span>
+        <span *ngIf="
             f['confirmPassword'].getError('mustMatch') != null &&
             f['confirmPassword'].touched
-          "
-          class="errorMsg"
-          >Password is mismatch</span
-        >
+          " class="errorMsg">Password is mismatch</span>
         <div class="form-group m-2 p-1">
           <button type="submit" (click)="signupData()" class="btn btn-danger">
             Sign Up
@@ -116,9 +71,6 @@
         </div>
       </form>
     </div>
-    <div
-      class="col-4 bg-warning imgBack"
-      style="z-index: -999 !important"
-    ></div>
+    <div class="col-4 bg-warning imgBack" style="z-index: -999 !important"></div>
   </div>
 </div>
