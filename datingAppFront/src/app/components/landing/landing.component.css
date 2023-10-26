@@ -48,3 +48,12 @@ background-position: center;
     font-size: 1.5rem;
     font-weight: 700;
 }
+
+.thirdSectionImage{
+    background-image: url(../../../assets/images/thirdSection.png);
+    background-size: contain;
+    height: 400px;
+    background-repeat: no-repeat;
+background-position: left;
+
+}

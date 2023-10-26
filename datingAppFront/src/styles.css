@@ -11,3 +11,13 @@
 button {
     box-shadow: 6px 5px 15px #ff0000;
   }
+
+  .bgdanger{
+    background-color:#ff0000 !important;
+    color : white;
+  }
+
+  .textdanger{
+    color: #ff0000 !important;
+
+  }
