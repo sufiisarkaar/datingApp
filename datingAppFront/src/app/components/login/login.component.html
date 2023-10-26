@@ -1,39 +1,51 @@
 <div class="container slide">
 
-    <div class="row d-flex justify-content-evenly">
+    <div class="row d-flex justify-content-center">
 
 
-        <div class="col-4 bg-warning imgBack" style="z-index: -999 !important;"  >
+        <div class="col-4 bg-warning imgBack" style="z-index: -999 !important;">
         </div>
 
 
 
-        <div class="col-7 mt-5 p-5 paragraph ">   
-        <form [formGroup]="loginForm">
-                            
-                <div class="form">
-                   <input type="email"  formControlName="loginEmail"   />
-                   <label  class="label-name"> Email </label>
-                </div>
-                  <span *ngIf="loginControls['loginEmail'].getError('required')!=null && loginControls['loginEmail'].touched "
-                  class="errorMsg ">Email is required</span>
-                  <span *ngIf="loginControls['loginEmail'].getError('email')!=null && loginControls['loginEmail'].touched "
-                  class="errorMsg ">Invalid Email formet</span>
+        <div class="col-7 mt-5 p-5">
+            <div class="formDivhight">
+                <h3 class="textdanger">
+                    <b><u>Login</u></b>
+                  </h3>
+            <form [formGroup]="loginForm">
 
-                <div class="form">
-                    <input type="{{ showPassword ? 'text' : 'password' }}"  formControlName="loginPassword"/>
+                <div class="form mt-4 mb-3">
+                    <input type="email" formControlName="loginEmail" />
+                    <label class="label-name"> E-mail </label>
+                </div>
+                <span
+                    *ngIf="loginControls['loginEmail'].getError('required')!=null && loginControls['loginEmail'].touched "
+                    class="errorMsg ">Email is required</span>
+                <span
+                    *ngIf="loginControls['loginEmail'].getError('email')!=null && loginControls['loginEmail'].touched "
+                    class="errorMsg ">Invalid Email formet</span>
+
+                <div class="form mt-4 mb-3">
+                    <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="loginPassword" />
                     <label class="label-name">Password</label>
-                    <span class="content-name mb-2" (click)="togglePasswordVisibility()">{{ showPassword ? 'Hide Password' : 'Show Password' }} </span>
+                    <span class="content-name mb-2" (click)="togglePasswordVisibility()">{{ showPassword ? 'Hide
+                        Password' : 'Show Password' }} </span>
 
                 </div>
-                <span *ngIf="loginControls['loginPassword'].getError('required')!=null && loginControls['loginPassword'].touched "
+                <span
+                    *ngIf="loginControls['loginPassword'].getError('required')!=null && loginControls['loginPassword'].touched "
                     class="errorMsg">Password is required </span>
-<div class="form-group m-2 p-1" >
+                <div class="form-group divaa mt-4 align-items-center">
 
-    <button type="submit" (click)="loginData()" class="btn btn-danger">Login</button>
-</div>
-        </form>      
+                    <button type="submit" (click)="loginData()" class="btn btn-danger">Login</button>
+                   
+                    <a class="newUser" routerLink="/register">Create your Dating account </a>
+                </div>
+            </form>
         </div>
-       
+
+        </div>
+
     </div>
 </div>

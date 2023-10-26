@@ -1,11 +1,11 @@
 <div class="container slide">
   <div class="row d-flex justify-content-center">
     <div class="col-7 mt-5 p-5 paragraph">
-      <h3 class="">
+      <h3 class="textdanger">
         <b><u> Sign-Up</u></b>
       </h3>
       <form [formGroup]="SignupForm">
-        <div class="form mt-4 mb-3">
+        <div class="form ">
           <input type="name" formControlName="firstName" />
           <label class="label-name"> First Name </label>
         </div>
@@ -16,14 +16,14 @@
         <span *ngIf="f['firstName'].getError('minlength') != null" class="errorMsg">User name should be alteast 4
           letters
         </span>
-        <div class="form mt-3 mb-3">
+        <div class="form ">
           <input type="name" class="form" formControlName="lastName" />
           <label class="label-name"> Last Name </label>
         </div>
         <span *ngIf="
             f['lastName'].getError('required') != null && f['lastName'].touched
           " class="errorMsg">Last Name is required</span>
-        <div class="form mt-3 mb-3">
+        <div class="form">
           <input type="email" class="form" formControlName="email" aria-describedby="emailHelp" />
           <label class="label-name">E-mail</label>
         </div>
@@ -31,8 +31,16 @@
           required</span>
         <span *ngIf="f['email'].getError('email') != null && f['email'].touched" class="errorMsg">Invalid Email
           formet</span>
+          <div class="form">
+            <input type="text" class="form" formControlName="number" />
+            <label class="label-name">Number</label>
+          </div>
+          <span *ngIf="f['email'].getError('required') != null && f['email'].touched" class="errorMsg">Email is
+            required</span>
+          <span *ngIf="f['email'].getError('email') != null && f['email'].touched" class="errorMsg">Invalid Email
+            formet</span>
 
-        <div class="form mt-3 mb-3">
+        <div class="form ">
           <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" formControlName="password" />
           <label class="label-name">Password</label>
           <span class="content-name mb-2" (click)="togglePasswordVisibility('Password')">{{
@@ -48,7 +56,7 @@
           " class="errorMsg">Password is required
         </span>
 
-        <div class="form mt-3 mb-3">
+        <div class="form ">
           <input type="{{ showconPassword ? 'text' : 'password' }}" class="form-control"
             formControlName="confirmPassword" placeholder="" />
           <label class="label-name"> Confirm Password </label>
@@ -64,7 +72,7 @@
             f['confirmPassword'].getError('mustMatch') != null &&
             f['confirmPassword'].touched
           " class="errorMsg">Password is mismatch</span>
-        <div class="form-group m-2 p-1">
+        <div class="form m-2 ">
           <button type="submit" (click)="signupData()" class="btn btn-danger">
             Sign Up
           </button>
