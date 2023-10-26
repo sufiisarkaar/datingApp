@@ -1,0 +1,34 @@
+<div class="container slide">
+
+    <div class="row d-flex justify-content-center">
+
+        <div class="col-7 mt-5 p-5 paragraph ">   
+        <form [formGroup]="loginForm">
+                            
+                <div class="form">
+                   <input type="email"  formControlName="loginEmail"   />
+                   <label  class="label-name"> Email </label>
+                </div>
+                  <span *ngIf="loginControls['loginEmail'].getError('required')!=null && loginControls['loginEmail'].touched "
+                  class="errorMsg ">Email is required</span>
+                  <span *ngIf="loginControls['loginEmail'].getError('email')!=null && loginControls['loginEmail'].touched "
+                  class="errorMsg ">Invalid Email formet</span>
+
+                <div class="form">
+                    <input type="{{ showPassword ? 'text' : 'password' }}"  formControlName="loginPassword"/>
+                    <label class="label-name">Password</label>
+                    <span class="content-name mb-2" (click)="togglePasswordVisibility()">{{ showPassword ? 'Hide Password' : 'Show Password' }} </span>
+
+                </div>
+                <span *ngIf="loginControls['loginPassword'].getError('required')!=null && loginControls['loginPassword'].touched "
+                    class="errorMsg">Password is required </span>
+<div class="form-group m-2 p-1" >
+
+    <button type="submit" (click)="loginData()" class="btn btn-danger">Login</button>
+</div>
+        </form>      
+        </div>
+        <div class="col-4 bg-warning imgBack" style="z-index: -999 !important;"  >
+                </div>
+    </div>
+</div>
