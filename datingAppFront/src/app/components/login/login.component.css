@@ -56,21 +56,13 @@ background-position: center;
 
 
 /* form */
-body {
- 
-  height: 60vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  font-family: sans-serif;
-}
 
 .form {
-  width: 50%;
+  width: 56%;
   position: relative;
-  height: 50px;
+  height: 56px;
   overflow: hidden;
+ 
 }
 
 .form input {
@@ -93,39 +85,30 @@ body {
   color: rgba(23, 7, 7, 0.671);
 }
 
-.form label::after {
-  content: "";
-  position: absolute;
-  right: 0px;
-  bottom: -2px;
-  height: 100%;
-  width: 100%;
-  border-bottom: 2px solid rgba(240, 78, 78, 0.272);
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
-}
-
 .content-name {
   position: absolute;
   bottom: 5px;
   right: 0px;
-
   transition: all 0.3s ease;
 }
-
-.form input:focus + .label-name .content-name,
-.form input:valid + .label-name .content-name {
-  transform: translateY(-150%);
-  font-size: 14px;
-  color: rgba(222, 92, 148, 0.877);
-}
-
-.form input:focus + .label-name::after,
-.form input:valid + .label-name::after {
-  transform: translateX(0%);
-}
-
-
 .paragraph{
   float: right !important;
 }
+.divaa{
+  width: 380px;
+  justify-content:space-between;
+  display :flex
+  
+  
+}
+
+.newUser {
+ 
+  color: firebrick;
+
+}
+
+
+  .formDivhight{position: relative;
+    left: 175px;
+    top: 100px;}
