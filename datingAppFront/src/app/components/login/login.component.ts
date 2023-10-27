@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,27 +7,32 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginForm :FormGroup
-  showPassword: boolean = false; 
+  loginForm: FormGroup
+  showPassword: boolean = false;
   constructor() { }
 
+  passwordValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,15}$/
+      const valid = passwordRegex.test(control.value);
+      return valid ? null : { invalidPassword: { value: control.value } };
+    };
+  }
   ngOnInit(): void {
-     //loginForm
-     this.loginForm = new FormGroup({
-     
-      'loginEmail':new FormControl( '',Validators.compose([Validators.required,Validators.email])),
-      'loginPassword' :new FormControl('',Validators.required),
-     
+    //loginForm
+    this.loginForm = new FormGroup({
+
+      'loginEmail': new FormControl('', Validators.compose([Validators.required, Validators.email])),
+      'loginPassword': new FormControl('', [Validators.required, this.passwordValidator()]),
+
     })
   }
-  loginData(){
-    console.log("loginData====>",this.loginForm.value);
-    }
-    get loginControls(){
-      return this.loginForm.controls
-    }
-    togglePasswordVisibility(){
+  loginData() {
+    console.log("loginData====>", this.loginForm.value);
+  }
 
-  this.showPassword =!this.showPassword
-}
+  togglePasswordVisibility() {
+
+    this.showPassword = !this.showPassword
+  }
 }

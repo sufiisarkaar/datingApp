@@ -9,69 +9,78 @@
           <input type="name" formControlName="firstName" />
           <label class="label-name"> First Name </label>
         </div>
-        <span *ngIf="
-            f['firstName'].getError('required') != null &&
-            f['firstName'].touched
-          " class="errorMsg">First Name is required</span>
-        <span *ngIf="f['firstName'].getError('minlength') != null" class="errorMsg">User name should be alteast 4
-          letters
-        </span>
+        <span class="errorMsg" *ngIf="SignupForm.get('firstName').hasError('required') && SignupForm.get('firstName').touched">name is
+          required</span>
+        <span class="errorMsg"
+          *ngIf="SignupForm.get('firstName').getError('invalidName') && SignupForm.get('firstName').touched">First Name
+          is Invalid</span>
         <div class="form ">
           <input type="name" class="form" formControlName="lastName" />
           <label class="label-name"> Last Name </label>
         </div>
         <span *ngIf="
-            f['lastName'].getError('required') != null && f['lastName'].touched
-          " class="errorMsg">Last Name is required</span>
+        SignupForm.get('lastName').getError('required') != null && SignupForm.get('lastName').touched
+          " class="errorMsg"> Last Name is required</span>
+        <span class="errorMsg"
+          *ngIf="SignupForm.get('lastName').getError('invalidlastName') && SignupForm.get('lastName').touched"> Last
+          Name is Invalid</span>
         <div class="form">
           <input type="email" class="form" formControlName="email" aria-describedby="emailHelp" />
           <label class="label-name">E-mail</label>
         </div>
-        <span *ngIf="f['email'].getError('required') != null && f['email'].touched" class="errorMsg">Email is
+        <span *ngIf="SignupForm.get('email').getError('required') != null && SignupForm.get('email').touched" class="errorMsg">Email is
           required</span>
-        <span *ngIf="f['email'].getError('email') != null && f['email'].touched" class="errorMsg">Invalid Email
+        <span *ngIf="SignupForm.get('email').getError('email') != null && SignupForm.get('email').touched" class="errorMsg">Invalid Email
           formet</span>
-          <div class="form">
-            <input type="text" class="form" formControlName="number" />
-            <label class="label-name">Number</label>
-          </div>
-          <span *ngIf="f['email'].getError('required') != null && f['email'].touched" class="errorMsg">Email is
-            required</span>
-          <span *ngIf="f['email'].getError('email') != null && f['email'].touched" class="errorMsg">Invalid Email
-            formet</span>
+
+        <div class="form">
+          <input type="text" class="form" formControlName="number" />
+          <label class="label-name">Number</label>
+        </div>
+        <span class="errorMsg"
+          *ngIf="SignupForm.get('number').getError('invalidNumber') && SignupForm.get('number').touched"> Password is
+          Invalid</span>
 
         <div class="form ">
           <input type="{{ showPassword ? 'text' : 'password' }}" class="form-control" formControlName="password" />
           <label class="label-name">Password</label>
           <span class="content-name mb-2" (click)="togglePasswordVisibility('Password')">{{
-              showPassword
-                ? "Hide
+            showPassword
+            ? "Hide
             Password"
-                : "Show Password"
+            : "Show Password"
             }}
           </span>
+
         </div>
         <span *ngIf="
-            f['password'].getError('required') != null && f['password'].touched
+        SignupForm.get('password').getError('required') != null && SignupForm.get('password').touched
           " class="errorMsg">Password is required
         </span>
+        <span class="errorMsg"
+          *ngIf="SignupForm.get('password').getError('invalidPassword') && SignupForm.get('password').touched">Password
+          is Invalid</span>
 
         <div class="form ">
           <input type="{{ showconPassword ? 'text' : 'password' }}" class="form-control"
             formControlName="confirmPassword" placeholder="" />
           <label class="label-name"> Confirm Password </label>
-          <span class="content-name mb-2"
-            (click)="togglePasswordVisibility('confirmPassword')">{{ showconPassword ? "Hide Password" : "Show Password" }}
+          <span class="content-name mb-2" (click)="togglePasswordVisibility('confirmPassword')">{{ showconPassword ?
+            "Hide Password" : "Show Password" }}
           </span>
+
         </div>
         <span *ngIf="
-            f['confirmPassword'].getError('required') != null &&
-            f['confirmPassword'].touched
+        SignupForm.get('confirmPassword').getError('required') != null &&
+        SignupForm.get('confirmPassword').touched
           " class="errorMsg">Password is required</span>
         <span *ngIf="
-            f['confirmPassword'].getError('mustMatch') != null &&
-            f['confirmPassword'].touched
+        SignupForm.get('confirmPassword').getError('mustMatch') != null &&
+        SignupForm.get('confirmPassword').touched
           " class="errorMsg">Password is mismatch</span>
+        <span class="errorMsg"
+          *ngIf="SignupForm.get('confirmPassword').getError('invalidConPassword') && SignupForm.get('confirmPassword').touched">Password
+          is Invalid</span>
         <div class="form m-2 ">
           <button type="submit" (click)="signupData()" class="btn btn-danger">
             Sign Up
