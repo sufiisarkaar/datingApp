@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators, } from '@angular/forms';
+
 
 @Component({
   selector: 'app-register',
@@ -12,16 +13,55 @@ export class RegisterComponent implements OnInit {
   showPassword: boolean = false;
   submitted: boolean
   constructor(private fb: FormBuilder) { }
+  // Regex validator 
+  nameValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const nameRegex = /^[A-Za-z]{4,}$/;
+      const valid = nameRegex.test(control.value);
+      return valid ? null : { invalidName: { value: control.value } };
+    };
+  }
 
+  lastNameValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const nameRegex = /^[A-Za-z]{4,}$/;
+      const valid = nameRegex.test(control.value);
+      return valid ? null : { invalidlastName: { value: control.value } };
+    };
+  }
+  numberValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const numberRegex = /^\d+$/;
+      const valid = numberRegex.test(control.value);
+      return valid ? null : { invalidNumber: { value: control.value } };
+    };
+  }
+  passwordValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,15}$/
+      const valid = passwordRegex.test(control.value);
+      return valid ? null : { invalidPassword: { value: control.value } };
+    };
+  }
+  conpasswordValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{5,15}$/
+      const valid = passwordRegex.test(control.value);
+      return valid ? null : { invalidConPassword: { value: control.value } };
+    };
+  }
+
+  //ngOnInit
   ngOnInit(): void {
+
     //singnupForm
     this.SignupForm = new FormGroup({
-      'firstName': new FormControl('', Validators.compose([Validators.required, Validators.minLength(4),]),),
-      'lastName': new FormControl('', Validators.required),
+      'firstName': new FormControl('', [Validators.required, this.nameValidator()]),
+      'lastName': new FormControl('', [Validators.required, this.lastNameValidator()]),
       'email': new FormControl('', Validators.compose([Validators.required, Validators.email])),
-      'password': new FormControl('', Validators.required),
-      'number': new FormControl('', Validators.required),
-      'confirmPassword': new FormControl('', Validators.required)
+      'password': new FormControl('', [Validators.required, this.passwordValidator()]),
+      'number': new FormControl('', [Validators.required, this.numberValidator()]),
+      'confirmPassword': new FormControl('', [Validators.required, this.conpasswordValidator()]),
     },
       {
         validators: <any>this.mustMatch('password', 'confirmPassword')
@@ -32,14 +72,8 @@ export class RegisterComponent implements OnInit {
   }
   signupData() {
     console.log("signupData", this.SignupForm.value);
-
   }
-
-  get f() {
-    return this.SignupForm.controls
-  }
-
-
+  //password Match
   mustMatch(password: any, conpassword: any) {
     return (FormGroup: FormGroup) => {
       const passwordControl = FormGroup.controls[password]
@@ -65,4 +99,7 @@ export class RegisterComponent implements OnInit {
       this.showPassword = !this.showPassword; //  Toggle the password visibility
     }
   }
+
+
+
 }
