@@ -10,6 +10,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLinkActive } from '@angular/router';
+import { ServiceComponent } from './components/service/service.component';
+import { AboutComponent } from './components/about/about.component';
+import { BlogComponent } from './components/blog/blog.component';
+import { PrivacyComponent } from './components/privacy/privacy.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { RouterLinkActive } from '@angular/router';
     FooterComponent,
     LoginComponent,
     RegisterComponent,
-    LandingComponent
+    LandingComponent,
+    ServiceComponent,
+    AboutComponent,
+    BlogComponent,
+    PrivacyComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,

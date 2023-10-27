@@ -57,3 +57,28 @@ background-position: center;
 background-position: left;
 
 }
+
+.cardCarousel{
+    height: auto;
+    width: 400px;
+    border-radius: 10px;
+    padding: auto;
+    margin: 35px;
+    box-shadow: 16px 15px 55px #ff000052 !important;
+
+}
+
+.cardCarousel .cardContent{
+    padding: 5px;
+}
+
+.map{
+    background-image: url(../../../assets/images/map.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    width: auto;
+    height: 600px;
+    background-size: contain;
+    margin-top: -250px;
+
+}
