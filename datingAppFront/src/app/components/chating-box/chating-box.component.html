@@ -1,0 +1,40 @@
+<div class="container mt-3 mb-3">
+    <div class="row d-flex justify-content-center">
+        <div class="col-12">
+            <div class="userName">
+                <h3><b>Jannie</b> </h3>
+               <span>online</span> 
+               <hr class="textdanger">
+            </div>
+        </div>
+
+
+        <div class="chating mt-3 mb-5 d-flex"  *ngFor="let chating of ChatArray">
+            <div class="col-1">
+                <img class="rounded-circle bg-info" src="../../../assets/images/LoginPoster2.png" height="60" width="60" />
+            </div>
+
+            <div class="col-10 mt-4 mx-0" style="vertical-align: middle !important;">
+                {{ chating.msg }}
+            </div>
+        </div>
+
+
+        <form [formGroup]="SendMessage">
+            <div class="row d-flex justify-content-center">
+        <div class="col-10">
+            <div class="chatingInput">
+                <input type="text" formControlName="msg" class="form-control" placeholder="type your message here..."  />
+            </div>
+        </div>
+
+        <div class="col-2">
+            <div class="chatSendButton">
+                <button class="btn btn-danger " (click)="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+    </form>
+           
+    </div>
+</div>

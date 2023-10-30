@@ -17,6 +17,7 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ChatingBoxComponent } from './components/chating-box/chating-box.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     PrivacyComponent,
     ContactComponent,
     DashboardComponent,
-    ProfileComponent
+    ProfileComponent,
+    ChatingBoxComponent
   ],
   imports: [
     BrowserModule,
