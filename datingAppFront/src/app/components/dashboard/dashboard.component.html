@@ -1,5 +1,27 @@
 <div class="container">
-    <div class="row">
+    <div class="row d-flex ">
         
+        
+        
+        <div class="col-12 mt-4 mb-2">
+            <h3><b>You Intrested</b></h3>
+            <hr class="textdanger" >
+        </div>
+        
+     
+        <div class="col-2 mt-2 mb-4 " *ngFor="let intrested of [1,1,1,1,1,1,1,1,1,1,1,1,1]; let i = index;">
+           
+            <div class="card shadow" >
+                <img class="card-img-top img-fluid rounded" src="https://i.dailymail.co.uk/i/newpix/2018/05/21/16/4C81663500000578-5753877-New_research_has_found_that_girls_prefer_to_use_dating_apps_for_-a-18_1526916130383.jpg" alt="Card image cap">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Jannie</h5>
+                  <p class="card-text">18 years old</p>
+                  <button class="btn btnwarning btn-sm" (click)="sendMessage(i);">Send Message</button>
+                </div>
+              </div>
+
+        </div>
+
+
     </div>
-</div>
+    </div>
