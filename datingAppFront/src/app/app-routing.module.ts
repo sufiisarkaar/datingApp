@@ -24,6 +24,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'chating/:id', component: ChatingBoxComponent },
+  {path:'chating', component: ChatingBoxComponent},
+  
 ];
 
 @NgModule({
