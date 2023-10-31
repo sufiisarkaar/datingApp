@@ -8,8 +8,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ChatingBoxComponent implements OnInit {
   SendMessage:FormGroup;
-
+  
+  userInput: string = '';
+  reply: string[] = [];
   ChatArray:any = [];
+  
   constructor(private FB:FormBuilder) {
     this.SendMessage = this.FB.group({
       msg : this.FB.control('',[Validators.required])
@@ -17,6 +20,24 @@ export class ChatingBoxComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    // this.chatBot();
+  }
+  
+
+  chatBot() {
+    let msg = this.SendMessage.value;
+    if(msg.msg === "hii") {
+      this.reply.push("hi");
+      console.log("thisreply", this.reply);
+    } else if(msg == "how r u") {
+      this.reply.push("fine..! and you?");
+    } else if(msg == "fine") {
+      this.reply.push("good");
+    }
+    //  else {
+    //   console.log("thisreply", this.reply);
+    //   this.reply.push("Sorry...");
+    // }
   }
 
 
@@ -28,4 +49,5 @@ export class ChatingBoxComponent implements OnInit {
     }
 
   }
+  
 }
