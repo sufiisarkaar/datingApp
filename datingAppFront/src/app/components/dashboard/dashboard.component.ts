@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +9,15 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class DashboardComponent implements OnInit {
   
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+
+
+  sendMessage(index:any){
+console.log("send message index is ===>", index);
+this.router.navigate(['/chating/',index])
+  }
 }

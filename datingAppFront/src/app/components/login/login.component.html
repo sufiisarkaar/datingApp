@@ -21,10 +21,10 @@
                     </div>
                     <span
                         *ngIf="loginForm.get('loginEmail').getError('required')!=null && loginForm.get('loginEmail').touched "
-                        class="errorMsg ">Email is required</span>
+                        class="textdanger ">Email is required</span>
                     <span
                         *ngIf="loginForm.get('loginEmail').getError('email')!=null && loginForm.get('loginEmail').touched "
-                        class="errorMsg ">Invalid Email formet</span>
+                        class="textdanger ">Invalid Email formet</span>
 
                     <div class="form mt-4 mb-3">
                         <input type="{{ showPassword ? 'text' : 'password' }}" formControlName="loginPassword" />
@@ -35,8 +35,8 @@
                     </div>
                     <span
                         *ngIf="loginForm.get('loginPassword').getError('required')!=null && loginForm.get('loginPassword').touched "
-                        class="errorMsg">Password is required </span>
-                    <span class="errorMsg"
+                        class="textdanger">Password is required </span>
+                    <span class="textdanger"
                         *ngIf="loginForm.get('loginPassword').getError('invalidPassword') && loginForm.get('loginPassword').touched">Password
                         is Invalid</span>
                     <div class="form-group divaa mt-4 align-items-center">

@@ -10,6 +10,7 @@ import { PrivacyComponent } from './components/privacy/privacy.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ServiceComponent } from './components/service/service.component';
+import { ChatingBoxComponent } from './components/chating-box/chating-box.component';
 
 const routes: Routes = [
   { path: '', component: LandingComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'chating/:id', component: ChatingBoxComponent },
 ];
 
 @NgModule({
