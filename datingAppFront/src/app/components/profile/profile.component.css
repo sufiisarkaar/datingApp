@@ -1,0 +1,24 @@
+.profilePhoto{
+    margin-top: -40px !important;
+    border-radius: 50%;
+    border: 5px solid white;
+}
+
+.profilePhoto img{
+    height: 14vh !important;
+    width:  14vw !important;
+}
+
+.btnHover .btn{
+    background-color: rgba(128, 128, 128, 0.076);
+}
+
+.btnHover .btn:hover{
+    background-color: #ffe10044;
+    box-shadow: 10px 10px 3px #ff000044;
+}
+
+.active{
+    background-color: #ffe10044;
+    box-shadow: 10px 10px 3px #ff000044;
+}
