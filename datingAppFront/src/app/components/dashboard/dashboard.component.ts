@@ -12,12 +12,12 @@ export class DashboardComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    
   }
-
-
-
+  
   sendMessage(index:any){
-console.log("send message index is ===>", index);
-this.router.navigate(['/chating/',index])
-  }
+ this.router.navigate(['/chating',index]);
+ 
+   }
+
 }

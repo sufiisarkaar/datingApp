@@ -5,47 +5,32 @@
                 <h3><b>Jannie</b> </h3>
                <span class="textsuccess">online</span> 
                <hr class="textdanger">
-            </div>
-        </div>
 
 
-        <div class="chating mt-3 mb-5 d-flex"  *ngFor="let chating of ChatArray">
-            
-            <div class="col-10 mt-4 mx-0 text-end mx-4" style="vertical-align: middle !important;">
-                {{ chating.msg }}
-            </div>
-            <div class="col-1">
-                <img class="rounded-circle bg-info" src="../../../assets/images/LoginPoster2.png" height="60" width="60" />
-            </div>
-        </div>
+                <ng-container *ngFor="let message of messages">
+                    <div class="message" [ngClass]="{ 'from': message.author === 'bot',
+                'to': message.author === 'user' }">
+                        {{ message.content }}
+                    </div>
+                </ng-container>
 
-        <div class="chating mt-3 mb-5 d-flex"  *ngFor="let response of reply">
-            
-            <div class="col-1 text-center">
-                <img class="rounded-circle bg-secondary" src="../../../assets/images/slide.png" height="60" width="60" />
-            </div>
-            <div class="col-10 mt-4" style="vertical-align: middle !important;">
-                {{ response }}
-            </div>
-        </div>
+<div class="row d-flex mt-4">
 
-       
-
-        <form [formGroup]="SendMessage">
-            <div class="row d-flex justify-content-center">
-        <div class="col-10">
-            <div class="chatingInput">
-                <input [(ngModel)]="userInput"  name="userInput" type="text" formControlName="msg" class="form-control" placeholder="type your message here..."  />
-            </div>
-        </div>
-
-        <div class="col-2">
-            <div class="chatSendButton">
-                <button class="btn btn-danger " (click)="sendMessage()">Send</button>
-            </div>
-        </div>
+    
+    <div class="col-10">
+        <input class=" form-control" [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text">
     </div>
-    </form>
-           
+    
+    
+    <div class="col-2">
+        <button class="btn btn-danger" (click)="sendMessage()">Send</button>
+    </div>
+    
+</div>
+
+              
+
+            </div>
+        </div>
     </div>
 </div>
