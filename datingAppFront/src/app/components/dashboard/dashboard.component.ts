@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -7,14 +7,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  
 
   constructor(private router:Router) { }
 
   ngOnInit(): void {
     
   }
-  sendMessage(){
- this.router.navigate(['/chating']);
+  
+  sendMessage(index:any){
+ this.router.navigate(['/chating',index]);
  
    }
 

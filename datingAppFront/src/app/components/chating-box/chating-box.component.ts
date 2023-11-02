@@ -12,6 +12,10 @@ export class ChatingBoxComponent implements OnInit {
   value: string;
   constructor(public chatService: ChatService) { }
 
+  
+
+
+  
   ngOnInit() {
     this.chatService.conversation.subscribe((val) => {
     this.messages = this.messages.concat(val);

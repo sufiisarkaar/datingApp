@@ -18,6 +18,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ChatingBoxComponent } from './components/chating-box/chating-box.component';
+import { DashboardHeaderComponent } from './components/dashboard-header/dashboard-header.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ChatingBoxComponent } from './components/chating-box/chating-box.compon
     ContactComponent,
     DashboardComponent,
     ProfileComponent,
-    ChatingBoxComponent
+    ChatingBoxComponent,
+    DashboardHeaderComponent
   ],
   imports: [
     BrowserModule,

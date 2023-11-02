@@ -3,20 +3,33 @@
         <div class="col-12">
             <div class="userName">
                 <h3><b>Jannie</b> </h3>
-                <span>online</span>
-                <hr class="textdanger">
+               <span class="textsuccess">online</span> 
+               <hr class="textdanger">
+
+
                 <ng-container *ngFor="let message of messages">
                     <div class="message" [ngClass]="{ 'from': message.author === 'bot',
                 'to': message.author === 'user' }">
                         {{ message.content }}
                     </div>
                 </ng-container>
-                <label *ngIf="messages.length == 0; else dialogInfo" for="nameField">Your message</label>
-                <input class="text-center" [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text">
-                <button class="btn btn-danger" (click)="sendMessage()">Send</button>
-                <ng-template #dialogInfo>
-                    <span [className]="'float-right'">Total messages: {{messages.length}}</span>
-                </ng-template>
+
+<div class="row d-flex mt-4">
+
+    
+    <div class="col-10">
+        <input class=" form-control" [(ngModel)]="value" (keyup.enter)="sendMessage()" type="text">
+    </div>
+    
+    
+    <div class="col-2">
+        <button class="btn btn-danger" (click)="sendMessage()">Send</button>
+    </div>
+    
+</div>
+
+              
+
             </div>
         </div>
     </div>
