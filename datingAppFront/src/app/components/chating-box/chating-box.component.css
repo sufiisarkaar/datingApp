@@ -20,3 +20,7 @@
   .message.from + .message.from {
     /* margin-top: -20px; */
   }
+
+  input{
+    border: 1px solid #ff0000;
+  }
