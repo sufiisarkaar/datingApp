@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll(event: any) {
-    if (window.pageYOffset > 50) {
+    if (window.pageYOffset > 10) {
       this.bgColor = '#ffff'; // Change background color after scrolling 50px
     } else {
       this.bgColor = 'transparent'; // Change background color back to transparent
